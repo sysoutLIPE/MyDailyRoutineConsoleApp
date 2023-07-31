@@ -5,10 +5,11 @@ using MyDailyRoutineConsoleApp.Models;
 //Creating my object tasks:
 SetOfDailyTasks currentDailyTasks = new SetOfDailyTasks();
 DateTime dateNow = DateTime.Now;
-DateTime dia = DateTime.Now;
-DateTime mes = DateTime.Now;
+DateTime currentDay = DateTime.Now;
+DateTime currentMonth = DateTime.Now;
 
-
+Console.WriteLine("--------------------------------------------------");
+Console.WriteLine("--------------------------------------------------");
 Console.WriteLine($"Welcome to your daily tasks!Today is {dateNow.ToString("dd/MM/yyyy")}");
 Console.WriteLine("--------------------------------------------------");
 Console.WriteLine("--------------------------------------------------");
@@ -40,7 +41,7 @@ try{
 
 
 
-    StreamWriter sw = new StreamWriter($"C:\\Rotinas2023/RotinaDia{dia.ToString("dd")}Mes{mes.ToString("MM")}.txt");
+    StreamWriter sw = new StreamWriter($"C:\\Rotinas2023/RotinaDia{currentDay.ToString("dd")}Mes{currentMonth.ToString("MM")}.txt");
     sw.WriteLine($"Rotina da data = {dateNow.ToString("dd/MM/yyyy")}");
 
     try
@@ -48,8 +49,9 @@ try{
         
         Console.Write("Did you conclude the task 'Meditation'? >>> ");
         doneTaskMeditation = Convert.ToBoolean(Console.ReadLine());
-        
-            if (doneTaskMeditation == true) {
+
+        if (doneTaskMeditation == true)
+        {
             Console.WriteLine($"Congratulations you done this task! You type it {doneTaskMeditation} ^_^ .");
             
         } 
@@ -372,6 +374,8 @@ try{
     Console.WriteLine("-----------------------------------------------------");
     Console.WriteLine("-----------------------------------------------------");
     Console.WriteLine("You filled out your Daily Routine");
+    Console.WriteLine("--------------------------------------------------");
+    Console.WriteLine("--------------------------------------------------");
     sw.Close();
 }
 catch (Exception e)
